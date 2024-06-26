@@ -1,5 +1,5 @@
 
-#Hash-Verify
+# Hash-Verify
 
 hash-verify is a Python script designed to verify the integrity of files by comparing the provided hash with the calculated hash. It supports multiple hash algorithms, making it versatile and easy to use for various applications.
 
