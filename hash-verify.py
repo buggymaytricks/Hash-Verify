@@ -3,10 +3,10 @@ import hashlib
 
 
 # md5 check function
-def md5_check(file, orignal_hash):
+def md5_check(file, original_hash):
     f_size = os.path.getsize(file)  # checks the file size in byte
     file_name = file  # renamed the variable so the function below can access it
-    original_md5 = str(orignal_hash)  # storing the original hash you got
+    original_md5 = str(original_hash)  # storing the original hash you got
 
     print('Be Patient!')
 
@@ -23,7 +23,7 @@ def md5_check(file, orignal_hash):
                 hash_md5.update(chunk)  # updates the hash after reading every chunk
         md5_returned = hash_md5.hexdigest()  # converts the hash in the string into the readaable format
 
-    print(f'orignal    : {original_md5}')  # prints the orignal hash
+    print(f'original   : {original_md5}')  # prints the original hash
     print(f'calculated : {md5_returned}')  # prints the current calculated hash of the file
 
     if original_md5 == md5_returned:  # checks if both the hashes are same
@@ -33,10 +33,10 @@ def md5_check(file, orignal_hash):
 
 
 # sha1 check function
-def sha1_check(file, orignal_hash):
+def sha1_check(file, original_hash):
     f_size = os.path.getsize(file)
     file_name = file
-    original_sha1 = str(orignal_hash)
+    original_sha1 = str(original_hash)
 
     print('Be Patient!')
 
@@ -51,7 +51,7 @@ def sha1_check(file, orignal_hash):
                 hash_sha1.update(chunk)
         sha1_returned = hash_sha1.hexdigest()
 
-    print(f'orignal    : {original_sha1}')
+    print(f'original   : {original_sha1}')
     print(f'calculated : {sha1_returned}')
 
     if original_sha1 == sha1_returned:
@@ -61,10 +61,10 @@ def sha1_check(file, orignal_hash):
 
 
 # sha256 check function
-def sha256_check(file, orignal_hash):
+def sha256_check(file, original_hash):
     f_size = os.path.getsize(file)
     file_name = file
-    original_sha256 = str(orignal_hash)
+    original_sha256 = str(original_hash)
 
     print('Be Patient!')
 
@@ -79,7 +79,7 @@ def sha256_check(file, orignal_hash):
                 hash_sha256.update(chunk)
         sha256_returned = hash_sha256.hexdigest()
 
-    print(f'orignal    : {original_sha256}')
+    print(f'original   : {original_sha256}')
     print(f'calculated : {sha256_returned}')
 
     if original_sha256 == sha256_returned:
@@ -89,10 +89,10 @@ def sha256_check(file, orignal_hash):
 
 
 # sha3_256 check function
-def sha3_256_check(file, orignal_hash):
+def sha3_256_check(file, original_hash):
     f_size = os.path.getsize(file)
     file_name = file
-    original_sha3_256 = str(orignal_hash)
+    original_sha3_256 = str(original_hash)
 
     print('Be Patient!')
 
@@ -107,7 +107,7 @@ def sha3_256_check(file, orignal_hash):
                 hash_sha3_256.update(chunk)
         sha3_256_returned = hash_sha3_256.hexdigest()
 
-    print(f'orignal    : {original_sha3_256}')
+    print(f'original   : {original_sha3_256}')
     print(f'calculated : {sha3_256_returned}')
 
     if original_sha3_256 == sha3_256_returned:
@@ -117,10 +117,10 @@ def sha3_256_check(file, orignal_hash):
 
 
 # sha512 check function
-def sha512_check(file, orignal_hash):
+def sha512_check(file, original_hash):
     f_size = os.path.getsize(file)
     file_name = file
-    original_sha512 = str(orignal_hash)
+    original_sha512 = str(original_hash)
 
     print('Be Patient!..........')
 
@@ -129,13 +129,13 @@ def sha512_check(file, orignal_hash):
             data = file_to_check.read()
             sha512_returned = hashlib.sha512(data).hexdigest()
     else:
-        hash_sha512 = hashlib.sha256()
+        hash_sha512 = hashlib.sha512()
         with open(file, "rb") as file_to_check:
             for chunk in iter(lambda: file_to_check.read(1000000), b""):
                 hash_sha512.update(chunk)
         sha512_returned = hash_sha512.hexdigest()
 
-    print(f'orignal    : {original_sha512}')
+    print(f'original   : {original_sha512}')
     print(f'calculated : {sha512_returned}')
 
     if original_sha512 == sha512_returned:
@@ -145,10 +145,10 @@ def sha512_check(file, orignal_hash):
 
 
 # sha3_512 check function
-def sha3_512_check(file, orignal_hash):
+def sha3_512_check(file, original_hash):
     f_size = os.path.getsize(file)
     file_name = file
-    original_sha3_512 = str(orignal_hash)
+    original_sha3_512 = str(original_hash)
 
     print('Be Patient!..........')
 
@@ -157,13 +157,13 @@ def sha3_512_check(file, orignal_hash):
             data = file_to_check.read()
             sha3_512_returned = hashlib.sha3_512(data).hexdigest()
     else:
-        hash_sha512 = hashlib.sha256()
+        hash_sha3_512 = hashlib.sha3_512()
         with open(file, "rb") as file_to_check:
             for chunk in iter(lambda: file_to_check.read(1000000), b""):
-                hash_sha512.update(chunk)
-        sha3_512_returned = hash_sha512.hexdigest()
+                hash_sha3_512.update(chunk)
+        sha3_512_returned = hash_sha3_512.hexdigest()
 
-    print(f'orignal    : {original_sha3_512}')
+    print(f'original   : {original_sha3_512}')
     print(f'calculated : {sha3_512_returned}')
 
     if original_sha3_512 == sha3_512_returned:
@@ -175,26 +175,26 @@ def sha3_512_check(file, orignal_hash):
 # Interface and calling functions
 hash_type = input('Which hash to check? : ').lower()
 file = str(input('Enter the full path for the file : '))
-orignal_hash = str(input('Enter the orignal hash : '))
+original_hash = str(input('Enter the original hash : '))
 
 if 'md5' in hash_type.lower():
-    md5_check(file, orignal_hash)
+    md5_check(file, original_hash)
 
 elif 'sha' in hash_type.lower():
     if '3' in hash_type:
         if '256' in str(hash_type.lower()):
-            sha3_256_check(file, orignal_hash)
+            sha3_256_check(file, original_hash)
         elif '512' in hash_type:
-            sha3_512_check(file, orignal_hash)
+            sha3_512_check(file, original_hash)
 
     elif '256' in hash_type:
-        sha256_check(file, orignal_hash)
+        sha256_check(file, original_hash)
 
     elif '512' in hash_type:
-        sha512_check(file, orignal_hash)
+        sha512_check(file, original_hash)
 
     else:
-        sha1_check(file, orignal_hash)
+        sha1_check(file, original_hash)
 
 else:
     print('Ran into some problem!')
