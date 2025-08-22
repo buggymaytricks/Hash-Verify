@@ -33,19 +33,20 @@ class HashVerifier:
     
     def normalize_algorithm_name(self, algorithm):
         """Normalize algorithm name to match supported algorithms"""
-        algorithm = algorithm.lower().strip()
+        algorithm = algorithm.lower().strip().replace('-', '')
         
         # Handle common variations
-        if algorithm in ['sha3-256', 'sha3_256']:
+        if algorithm in ['sha3256', 'sha3_256']:
             return 'sha3_256'
-        elif algorithm in ['sha3-512', 'sha3_512']:
+        elif algorithm in ['sha3512', 'sha3_512']:
             return 'sha3_512'
         elif algorithm in self.SUPPORTED_ALGORITHMS:
             return algorithm
         else:
             # Try to find a match for partial names
             for algo in self.SUPPORTED_ALGORITHMS:
-                if algorithm in algo or algo in algorithm:
+                clean_algo = algo.replace('_', '')
+                if algorithm == clean_algo or algorithm in clean_algo or clean_algo in algorithm:
                     return algo
             return None
     
